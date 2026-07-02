@@ -1,16 +1,18 @@
 :root {
-  --bg: #f6f7f9;
+  --bg: #f3f8fa;
   --surface: #ffffff;
-  --surface-strong: #f1f5f4;
-  --ink: #17202a;
-  --muted: #667085;
-  --line: #d9dee7;
-  --teal: #007c74;
-  --teal-dark: #005d58;
+  --surface-strong: #eef8fa;
+  --ink: #202328;
+  --muted: #6b7280;
+  --line: #d8e3e8;
+  --teal: #0da7bf;
+  --teal-dark: #08798c;
+  --red: #ed2636;
   --amber: #b66a00;
   --coral: #b42318;
-  --blue: #315c9c;
-  --shadow: 0 16px 40px rgba(20, 32, 48, 0.08);
+  --blue: #2a5b91;
+  --shadow: 0 18px 42px rgba(17, 39, 50, 0.1);
+  --soft-shadow: 0 10px 26px rgba(17, 39, 50, 0.07);
 }
 
 * {
@@ -18,7 +20,7 @@
 }
 
 html {
-  background: var(--bg);
+  background: #eef7f9;
 }
 
 body {
@@ -26,6 +28,9 @@ body {
   color: var(--ink);
   font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
   letter-spacing: 0;
+  background:
+    linear-gradient(180deg, #e7f8fb 0, #f7fafb 250px, #f3f8fa 100%),
+    var(--bg);
 }
 
 button,
@@ -50,33 +55,45 @@ button:disabled {
 
 .topbar {
   align-items: center;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(216, 227, 232, 0.95);
+  border-radius: 8px;
+  box-shadow: var(--soft-shadow);
   display: flex;
   justify-content: space-between;
   margin: 0 auto 18px;
   max-width: 1440px;
+  min-height: 96px;
+  padding: 18px 22px;
 }
 
 .brandCluster {
   align-items: center;
   display: flex;
-  gap: 14px;
+  gap: 20px;
+  min-width: 0;
 }
 
-.brandMark {
-  align-items: center;
-  background: var(--ink);
-  border-radius: 8px;
-  color: #ffffff;
-  display: grid;
-  font-size: 17px;
-  font-weight: 800;
-  height: 48px;
-  justify-items: center;
-  width: 48px;
+.schoolLogo {
+  display: block;
+  flex: 0 0 auto;
+  height: auto;
+  max-height: 62px;
+  object-fit: contain;
+  width: min(296px, 34vw);
+}
+
+.topEyebrow {
+  color: var(--teal-dark);
+  display: block;
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 4px;
+  text-transform: uppercase;
 }
 
 .topbar h1 {
-  font-size: 24px;
+  font-size: 26px;
   line-height: 1.25;
   margin: 0;
 }
@@ -84,6 +101,19 @@ button:disabled {
 .topbar p {
   color: var(--muted);
   margin: 4px 0 0;
+}
+
+.topStatus {
+  align-items: flex-end;
+  display: grid;
+  gap: 8px;
+  justify-items: end;
+}
+
+.topStatus > span {
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 900;
 }
 
 .statusPill,
@@ -97,7 +127,7 @@ button:disabled {
 }
 
 .statusPill {
-  background: var(--surface);
+  background: #f7fbfc;
   padding: 8px 14px;
 }
 
@@ -112,7 +142,7 @@ button:disabled {
 
 .workspace {
   display: grid;
-  gap: 18px;
+  gap: 20px;
   grid-template-columns: 320px minmax(0, 1fr);
   margin: 0 auto;
   max-width: 1440px;
@@ -131,6 +161,7 @@ button:disabled {
   border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
 .intakeSurface,
@@ -140,6 +171,28 @@ button:disabled {
   padding: 18px;
 }
 
+.intakeSurface {
+  position: relative;
+}
+
+.intakeSurface::before,
+.questionSurface::before,
+.answerSurface::before {
+  background: linear-gradient(90deg, var(--teal), var(--red));
+  content: "";
+  display: block;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.questionSurface,
+.answerSurface {
+  position: relative;
+}
+
 .surfaceTitle {
   align-items: center;
   display: flex;
@@ -147,6 +200,7 @@ button:disabled {
   font-weight: 800;
   justify-content: space-between;
   margin-bottom: 16px;
+  padding-top: 2px;
 }
 
 .fineText,
@@ -170,7 +224,7 @@ button:disabled {
 
 .field input,
 .field textarea {
-  background: #ffffff;
+  background: #fbfdfe;
   border: 1px solid var(--line);
   border-radius: 6px;
   color: var(--ink);
@@ -183,7 +237,7 @@ button:disabled {
 .field input:focus,
 .field textarea:focus {
   border-color: var(--teal);
-  box-shadow: 0 0 0 3px rgba(0, 124, 116, 0.14);
+  box-shadow: 0 0 0 3px rgba(13, 167, 191, 0.16);
 }
 
 .field textarea {
@@ -194,7 +248,8 @@ button:disabled {
 
 .filePicker {
   align-items: center;
-  border: 1px dashed #a8b2c3;
+  background: #f4fbfc;
+  border: 1px dashed #8ccdd8;
   border-radius: 8px;
   display: grid;
   gap: 8px;
@@ -235,7 +290,7 @@ button:disabled {
 }
 
 .primaryButton {
-  background: var(--teal);
+  background: var(--teal-dark);
   color: #ffffff;
   width: 100%;
 }
@@ -248,12 +303,12 @@ button:disabled {
 }
 
 .primaryButton:hover:not(:disabled) {
-  background: var(--teal-dark);
+  background: #075f6f;
 }
 
 .secondaryButton {
-  background: #eef6f5;
-  border-color: #b7d8d4;
+  background: #edf9fb;
+  border-color: #9bd5dd;
   color: var(--teal-dark);
 }
 
@@ -324,13 +379,14 @@ button:disabled {
 
 .profileBand {
   align-items: center;
-  background: var(--surface-strong);
-  border: 1px solid #cfdad7;
+  background: #ffffff;
+  border: 1px solid #cce5ea;
   border-radius: 8px;
   display: grid;
   gap: 18px;
   grid-template-columns: minmax(0, 1fr) auto;
   padding: 18px;
+  box-shadow: var(--soft-shadow);
 }
 
 .profileBand p {
@@ -355,7 +411,7 @@ button:disabled {
 
 .tagList span,
 .questionMeta span {
-  background: #ffffff;
+  background: #f7fbfc;
   padding: 6px 10px;
 }
 
@@ -371,7 +427,7 @@ button:disabled {
 }
 
 .questionCard {
-  background: #ffffff;
+  background: #fbfdfe;
   border: 1px solid var(--line);
   border-radius: 8px;
   color: inherit;
@@ -385,7 +441,8 @@ button:disabled {
 
 .questionCard.active {
   border-color: var(--teal);
-  box-shadow: inset 3px 0 0 var(--teal);
+  background: #f0fbfd;
+  box-shadow: inset 4px 0 0 var(--red);
 }
 
 .questionCard span {
@@ -399,7 +456,7 @@ button:disabled {
 }
 
 .questionCard small {
-  color: var(--amber);
+  color: var(--red);
   font-size: 12px;
   font-weight: 800;
 }
@@ -445,7 +502,7 @@ button:disabled {
 }
 
 .miniList {
-  background: #f9fafb;
+  background: #f8fbfc;
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 13px;
@@ -483,7 +540,8 @@ button:disabled {
 }
 
 .evaluationBox {
-  border: 1px solid #c9d9ee;
+  background: #fbfdfe;
+  border: 1px solid #b9dce5;
   border-radius: 8px;
   margin: 18px 0;
   padding: 16px;
@@ -498,7 +556,7 @@ button:disabled {
 
 .scoreRing {
   align-items: center;
-  border: 6px solid #d9ebe8;
+  border: 6px solid #d8f0f4;
   border-radius: 50%;
   display: grid;
   height: 86px;
@@ -550,12 +608,12 @@ button:disabled {
 }
 
 .rubricItem span {
-  color: var(--blue);
+  color: var(--teal-dark);
   font-weight: 800;
 }
 
 .guideBox {
-  background: #f9fafb;
+  background: #f8fbfc;
   border: 1px solid var(--line);
   border-radius: 8px;
   margin-top: 14px;
@@ -568,8 +626,8 @@ button:disabled {
 }
 
 .guideBox.subtle {
-  background: #fffaf2;
-  border-color: #efd4a7;
+  background: #fff8f8;
+  border-color: #f3c0c6;
 }
 
 .emptyState {
@@ -620,6 +678,24 @@ button:disabled {
     align-items: flex-start;
     display: grid;
     gap: 12px;
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .brandCluster {
+    align-items: flex-start;
+    display: grid;
+    gap: 12px;
+  }
+
+  .schoolLogo {
+    max-height: none;
+    width: min(280px, 100%);
+  }
+
+  .topStatus {
+    align-items: start;
+    justify-items: start;
   }
 
   .tagList {
