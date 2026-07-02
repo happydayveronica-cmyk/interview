@@ -303,13 +303,17 @@ export default function Home() {
     <main className="appShell">
       <header className="topbar">
         <div className="brandCluster">
-          <div className="brandMark">IR</div>
+          <img className="schoolLogo" src="/banpo-school-logo.jpg" alt="반포고등학교" />
           <div>
+            <span className="topEyebrow">BANPO INTERVIEW LAB</span>
             <h1>면접 리허설 스튜디오</h1>
             <p>학생부 기반 AI 면접 연습</p>
           </div>
         </div>
-        <div className="statusPill">{busy ? statusLabel(busy) : "준비됨"}</div>
+        <div className="topStatus">
+          <span>반포고 맞춤형</span>
+          <div className="statusPill">{busy ? statusLabel(busy) : "준비됨"}</div>
+        </div>
       </header>
 
       {notice ? <div className="notice">{notice}</div> : null}
