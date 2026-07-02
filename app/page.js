@@ -303,7 +303,7 @@ export default function Home() {
     <main className="appShell">
       <header className="topbar">
         <div className="brandCluster">
-          <img className="schoolLogo" src="/banpo-school-logo.jpg" alt="반포고등학교" />
+          <img className="schoolLogo" src="/banpo-school-logo.svg" alt="반포고등학교" />
           <div>
             <span className="topEyebrow">BANPO INTERVIEW LAB</span>
             <h1>면접 리허설 스튜디오</h1>
